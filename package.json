@@ -1,0 +1,41 @@
+{
+  "name": "boxlib",
+  "version": "1.0.0",
+  "description": "NodeJS libraries and utility functions",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/David-Vandensteen/boxlib.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "lib",
+    "util"
+  ],
+  "author": "David Vandensteen <dvandensteen@gmail.com>",
+  "license": "MIT",
+  "imports": {
+    "#src/*": "./src/*.js"
+  },
+  "bugs": {
+    "url": "https://github.com/David-Vandensteen/boxlib/issues"
+  },
+  "homepage": "https://github.com/David-Vandensteen/boxlib#readme",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.27.5",
+    "mocha": "^10.2.0"
+  },
+  "dependencies": {
+    "app-root-path": "^3.1.0",
+    "fs-extra": "^11.1.1",
+    "yaml": "^2.2.1"
+  }
+}
