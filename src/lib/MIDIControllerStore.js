@@ -22,7 +22,7 @@ export default class MIDIControllerStore {
     return this.#cache.get(key) ?? 0;
   }
 
-  reset() {
+  clear() {
     this.#cache.clear();
     return this;
   }

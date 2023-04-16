@@ -86,6 +86,35 @@ console.log(`Version: ${version}`);
 console.log(`License: ${license}`);
 ```
 
+### - TCPServer
+The TCPServer class creates a TCP server that listens on a specified host and port.  
+```javascript
+// Create a new TCPServer instance
+const server = new TCPServer({ host: '127.0.0.1', port: 7070 });
+
+// Listen for the 'connection' event
+server.on('connection', (socket) => {
+  console.log(`New client connected: ${socket.remoteAddress}:${socket.remotePort}`);
+
+  // Send a welcome message to the client
+  socket.write('Welcome to my TCP server!\n');
+});
+
+// Listen for the 'data' event
+server.on('data', (data) => {
+  console.log(`Received data: ${data.toString()}`);
+});
+
+// Start the server
+server.start();
+
+// Gracefully shut down the server after 10 seconds
+setTimeout(() => {
+  console.log('Shutting down server...');
+  server.close();
+}, 10000);
+```
+
 ### - YAMLLoader
 This function reads and parses YAML configuration files.  
 The function searches for the specified YAML file and returns the corresponding configuration object.  
