@@ -15,6 +15,25 @@ npm test
 BoxLib is licensed under the MIT License.
 
 ***
+### - MIDIControllerStore
+That manages MIDI controller values.
+It has methods for getting, setting, and resetting the values of the controllers.
+
+```javascript
+const store = MIDIControllerStore.getInstance();
+
+store.set({ controller: 1, channel: 0, value: 127 }); // Set controller 1 on channel 0 to 127
+store.set({ controller: 2, channel: 0, value: 64 }); // Set controller 2 on channel 0 to 64
+store.set({ controller: 1, channel: 1, value: 100 }); // Set controller 1 on channel 1 to 100
+
+console.log(store.getValue({ controller: 1, channel: 0 })); // Output: 127
+console.log(store.getValue({ controller: 2, channel: 0 })); // Output: 64
+console.log(store.getValue({ controller: 1, channel: 1 })); // Output: 100
+
+store.reset(); // Reset all values
+
+console.log(store.getValue({ controller: 1, channel: 0 })); // Output: 0 (default value)
+```
 
 ### - YAMLLoader
 This function reads and parses YAML configuration files.  
