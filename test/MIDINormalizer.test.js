@@ -3,7 +3,7 @@ import { describe, it } from 'mocha';
 
 import { MIDINormalizer } from '#src/lib/MIDINormalizer';
 
-describe('MidiNormalizer', () => {
+describe('MIDINormalizer', () => {
   describe('#message()', () => {
     it('should return a normalized message', () => {
       const message = {

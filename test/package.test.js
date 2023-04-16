@@ -9,7 +9,7 @@ import {
   license,
 } from '#src/lib/package';
 
-describe('Package', () => {
+describe('package', () => {
   it('should export the package object', () => {
     expect(pkg).to.be.an('object');
     expect(pkg.name).to.equal(name);
