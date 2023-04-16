@@ -43,18 +43,36 @@ The message method takes a MIDI message object and normalizes its properties wit
 The controller, channel, and value methods take a numeric input and normalize it to a valid MIDI value.  
 
 ```javascript
-const originalMessage = {
-  channel: 16,
-  note: 80,
-  velocity: 120,
-  controller: 100,
-  value: -90
+import { MIDINormalizer } from './MIDINormalizer';
+
+const message = {
+  velocity: 130,
+  channel: 14,
+  value: -10,
+  note: 128,
+  controller: 200,
 };
 
-const normalizedMessage = MIDINormalizer.message(originalMessage);
+console.log('Original Message:', message);
 
-console.log(normalizedMessage);
-// Output: { channel: 15, note: 80, velocity: 120, controller: 100, value: 0 }
+const normalizedMessage = MIDINormalizer.message(message);
+console.log('Normalized Message:', normalizedMessage);
+
+const normalizedController = MIDINormalizer.controller(150);
+console.log('Normalized Controller:', normalizedController);
+
+const normalizedChannel = MIDINormalizer.channel(-1);
+console.log('Normalized Channel:', normalizedChannel);
+
+const normalizedValue = MIDINormalizer.value(200);
+console.log('Normalized Value:', normalizedValue);
+```
+```yaml
+Original Message: {velocity: 130, channel: 14, value: -10, note: 128, controller: 200}
+Normalized Message: {velocity: 127, channel: 14, value: 0, note: 127, controller: 127}
+Normalized Controller: 127
+Normalized Channel: 0
+Normalized Value: 127
 ```
 
 
