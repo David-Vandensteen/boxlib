@@ -43,8 +43,6 @@ The message method takes a MIDI message object and normalizes its properties wit
 The controller, channel, and value methods take a numeric input and normalize it to a valid MIDI value.  
 
 ```javascript
-import { MIDINormalizer } from './MIDINormalizer';
-
 const message = {
   velocity: 130,
   channel: 14,
