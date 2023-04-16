@@ -14,6 +14,20 @@ npm test
 ## License
 BoxLib is licensed under the MIT License.
 
+***
 
+### - YAMLLoader
+This function that reads and parses YAML configuration files.  
+The function searches for the specified YAML file and returns the corresponding configuration object.  
+If the YAML file is not found, it looks for fallback files in the provided order and returns the configuration object from the first found file.  
+If no file is found, an error is thrown. The "fallBack" option allows specifying optional fallback files to search for.
 
-
+```javascript
+try {
+  const config = YAMLLoader('config.yaml', { fallBack: ['config.production.yaml', 'config.default.yaml'] });
+  console.log('Database configuration:', config.db);
+  // Use the config object to connect to the database
+} catch (err) {
+  console.error('Error loading configuration:', err);
+}
+```
