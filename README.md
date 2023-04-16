@@ -37,6 +37,27 @@ store.reset(); // Reset all values
 console.log(store.getValue({ controller: 1, channel: 0 })); // Output: 0 (default value)
 ```
 
+### - MIDINormalizer
+This provides utility methods to normalize MIDI messages, channels, controllers, and values.  
+The message method takes a MIDI message object and normalizes its properties within their respective ranges.  
+The controller, channel, and value methods take a numeric input and normalize it to a valid MIDI value.  
+
+```javascript
+const originalMessage = {
+  channel: 16,
+  note: 80,
+  velocity: 120,
+  controller: 100,
+  value: -90
+};
+
+const normalizedMessage = MIDINormalizer.message(originalMessage);
+
+console.log(normalizedMessage);
+// Output: { channel: 15, note: 80, velocity: 120, controller: 100, value: 0 }
+```
+
+
 ### - package
 The code exports the contents of the `package.json` file and some of its properties.  
 The exported properties are `name`, `author`, `version`, and `license`
