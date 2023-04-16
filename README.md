@@ -16,8 +16,10 @@ BoxLib is licensed under the MIT License.
 
 ***
 ### - MIDIControllerStore
-That manages MIDI controller values.
-It has methods for getting, setting, and resetting the values of the controllers.
+This class manages MIDI controller values.
+It provides a way to store and retrieve MIDI controller values for different channels.  
+The class uses a private Map to cache the controller values.  
+`getInstance` is provided to retrieve a singleton.  
 
 ```javascript
 const store = MIDIControllerStore.getInstance();
