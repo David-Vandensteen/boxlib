@@ -37,6 +37,18 @@ store.reset(); // Reset all values
 console.log(store.getValue({ controller: 1, channel: 0 })); // Output: 0 (default value)
 ```
 
+### - package
+The code exports the contents of the `package.json` file and some of its properties.  
+The exported properties are `name`, `author`, `version`, and `license`
+```javascript
+import { name, author, version, license } from './package';
+
+console.log(`Name: ${name}`);
+console.log(`Author: ${author}`);
+console.log(`Version: ${version}`);
+console.log(`License: ${license}`);
+```
+
 ### - YAMLLoader
 This function reads and parses YAML configuration files.  
 The function searches for the specified YAML file and returns the corresponding configuration object.  
