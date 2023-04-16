@@ -32,7 +32,7 @@ console.log(store.getValue({ controller: 1, channel: 0 })); // Output: 127
 console.log(store.getValue({ controller: 2, channel: 0 })); // Output: 64
 console.log(store.getValue({ controller: 1, channel: 1 })); // Output: 100
 
-store.reset(); // Reset all values
+store.clear(); // Reset all values
 
 console.log(store.getValue({ controller: 1, channel: 0 })); // Output: 0 (default value)
 ```
