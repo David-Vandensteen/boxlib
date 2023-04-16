@@ -17,7 +17,7 @@ describe('MIDIControllerStore', () => {
 
   it('should return 0 for default values', () => {
     const state = MIDIControllerStore.getInstance();
-    state.reset();
+    state.clear();
     expect(state.getValue({ controller: 1, channel: 1 })).to.equal(0);
     expect(state.getValue({ controller: 2, channel: 1 })).to.equal(0);
     expect(state.getValue({ controller: 1, channel: 2 })).to.equal(0);
