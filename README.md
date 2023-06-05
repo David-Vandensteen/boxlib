@@ -73,6 +73,21 @@ Normalized Channel: 0
 Normalized Value: 127
 ```
 
+### - mixin
+Merge multiple objects into a single object, incorporating the methods from the provided objects.
+```javascript
+const jsonMapDate = mixin(new Map(), JSON, new Date());
+
+jsonMapDate.set('time', {
+  hour: jsonMapDate.getUTCHours(),
+  minutes: jsonMapDate.getUTCMinutes(),
+});
+
+console.log(
+  jsonMapDate.stringify(jsonMapDate.get('time')),
+);
+```
+
 
 ### - package
 The code exports the contents of the `package.json` file and some of its properties.  
