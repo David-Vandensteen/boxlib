@@ -28,7 +28,7 @@
   "homepage": "https://github.com/David-Vandensteen/boxlib#readme",
   "devDependencies": {
     "chai": "^4.3.7",
-    "eslint": "^8.38.0",
+    "eslint": "^8.42.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.27.5",
@@ -37,6 +37,7 @@
   "dependencies": {
     "app-root-path": "^3.1.0",
     "fs-extra": "^11.1.1",
-    "yaml": "^2.2.1"
+    "lodash": "^4.17.21",
+    "yaml": "^2.3.1"
   }
 }
