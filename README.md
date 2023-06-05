@@ -7,6 +7,17 @@
 BoxLib is a collection of NodeJS libraries and utility functions that can be used across multiple projects.  
 The libraries have been designed with ease of use and flexibility in mind, and are regularly tested and maintained.
 
+## Clone the repo
+```
+git clone git@github.com:David-Vandensteen/boxlib.git
+```
+
+## Install dependencies
+```
+cd boxlib
+npm i
+```
+
 ## Running Tests
 BoxLib includes a suite of unit tests that can be run using the following command:
 ```
