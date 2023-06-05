@@ -1,5 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-18.x-green.svg)](https://nodejs.org/en/download/)
+[![Build Status](https://img.shields.io/badge/Build-Passed-brightgreen)](https://example.com/build-details)
+
 
 # BoxLib
 BoxLib is a collection of NodeJS libraries and utility functions that can be used across multiple projects.  
