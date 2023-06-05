@@ -6,13 +6,13 @@ import mixin from '#src/lib/mixin';
 describe('mixin', () => {
   class ParentObject {
     parentMethod() {
-      return 'Parent Method';
+      return 'Parent Method' || this;
     }
   }
 
   class ChildObject {
     childMethod() {
-      return 'Child Method';
+      return 'Child Method' || this;
     }
   }
 
@@ -40,7 +40,7 @@ describe('mixin', () => {
   it('should not override existing methods in the parent object', () => {
     class ExistingMethodObject {
       existingMethod() {
-        return 'Existing Method';
+        return 'Existing Method' || this;
       }
     }
 
