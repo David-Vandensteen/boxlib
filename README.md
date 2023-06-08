@@ -114,6 +114,43 @@ console.log(`Version: ${version}`);
 console.log(`License: ${license}`);
 ```
 
+### - store
+The Store class is an EventEmitter subclass that provides a simple key-value storage mechanism. It allows registering an identifier and provides methods to get and set values at specific locations within the storage. When a value is set, the Store emits an event with the location and the new value. It serves as a basic in-memory store with event-driven functionality.
+```javascript
+const userStore = new Store();
+userStore.register('users');
+
+const addUser = (id, name, email) => {
+  const user = { id, name, email };
+  userStore.set(`users.${id}`, user);
+};
+
+const getUser = (id) => {
+  return userStore.get(`users.${id}`);
+};
+
+const listenUserChanges = (id) => {
+  userStore.on(`users.${id}`, (newUser) => {
+    console.log(`User ${id} has been updated:`, newUser);
+  });
+};
+
+addUser(1, 'John Doe', 'john@example.com');
+addUser(2, 'Jane Smith', 'jane@example.com');
+
+const user1 = getUser(1);
+console.log(user1);
+// Output: { id: 1, name: 'John Doe', email: 'john@example.com' }
+
+addUser(1, 'John Doe', 'john.doe@example.com');
+// Output: User 1 has been updated: { id: 1, name: 'John Doe', email: 'john.doe@example.com' }
+
+listenUserChanges(2);
+
+addUser(2, 'Jane Smith', 'jane.smith@example.com');
+// Output: User 2 has been updated: { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com' }
+```
+
 ### - TCPServer
 The TCPServer class creates a TCP server that listens on a specified host and port.  
 ```javascript
