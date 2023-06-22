@@ -1,11 +1,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-18.x-green.svg)](https://nodejs.org/en/download/)
-[![Build Status](https://img.shields.io/badge/Build-Passed-brightgreen)](https://example.com/build-details)
 
 # BoxLib
 ![](https://i.ibb.co/qksp4sZ/boxlib.png)
 
-BoxLib is a collection of NodeJS libraries and utility functions that can be used across multiple projects.  
+BoxLib is a collection of NodeJS libraries and utility functions that can be used across multiple projects.
 The libraries have been designed with ease of use and flexibility in mind, and are regularly tested and maintained.
 
 ## Clone the repo
@@ -31,9 +30,9 @@ BoxLib is licensed under the MIT License.
 ***
 ### - MIDIControllerStore
 This class manages MIDI controller values.
-It provides a way to store and retrieve MIDI controller values for different channels.  
-The class uses a private Map to cache the controller values.  
-`getInstance` is provided to retrieve a singleton.  
+It provides a way to store and retrieve MIDI controller values for different channels.
+The class uses a private Map to cache the controller values.
+`getInstance` is provided to retrieve a singleton.
 
 ```javascript
 const store = MIDIControllerStore.getInstance();
@@ -52,9 +51,9 @@ console.log(store.getValue({ controller: 1, channel: 0 })); // Output: 0 (defaul
 ```
 
 ### - MIDINormalizer
-This provides utility methods to normalize MIDI messages, channels, controllers, and values.  
-The message method takes a MIDI message object and normalizes its properties within their respective ranges.  
-The controller, channel, and value methods take a numeric input and normalize it to a valid MIDI value.  
+This provides utility methods to normalize MIDI messages, channels, controllers, and values.
+The message method takes a MIDI message object and normalizes its properties within their respective ranges.
+The controller, channel, and value methods take a numeric input and normalize it to a valid MIDI value.
 
 ```javascript
 const message = {
@@ -104,7 +103,7 @@ console.log(
 
 
 ### - package
-The code exports the contents of the `package.json` file and some of its properties.  
+The code exports the contents of the `package.json` file and some of its properties.
 The exported properties are `name`, `author`, `version`, and `license`
 ```javascript
 import { name, author, version, license } from './package';
@@ -153,7 +152,7 @@ addUser(2, 'Jane Smith', 'jane.smith@example.com');
 ```
 
 ### - TCPServer
-The TCPServer class creates a TCP server that listens on a specified host and port.  
+The TCPServer class creates a TCP server that listens on a specified host and port.
 ```javascript
 // Create a new TCPServer instance
 const server = new TCPServer({ host: '127.0.0.1', port: 7070 });
@@ -182,10 +181,10 @@ setTimeout(() => {
 ```
 
 ### - YAMLLoader
-This function reads and parses YAML configuration files.  
-The function searches for the specified YAML file and returns the corresponding configuration object.  
-If the YAML file is not found, it looks for fallback files in the provided order and returns the configuration object from the first found file.  
-If no file is found, an error is thrown.  
+This function reads and parses YAML configuration files.
+The function searches for the specified YAML file and returns the corresponding configuration object.
+If the YAML file is not found, it looks for fallback files in the provided order and returns the configuration object from the first found file.
+If no file is found, an error is thrown.
 
 ```javascript
 try {

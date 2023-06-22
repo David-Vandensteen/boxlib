@@ -1,22 +1,19 @@
-import EventEmitter from 'events';
+import EventEmitter from 'eventemitter3';
+
+const defaultStore = 'defaultStore';
 
 export default class Store extends EventEmitter {
-  register(id) {
-    this.id = id;
-    if (!this[id]) this[id] = {};
-    return this;
+  get(key, { nameSpace = defaultStore } = {}) {
+    if (!this[nameSpace]) return undefined;
+    return this[nameSpace][key];
   }
 
-  get(location) {
-    return this[this.id][location];
-  }
-
-  set(location, value) {
-    if (this[this.id][location] !== value) {
-      this[this.id][location] = value;
-      this.emit(location, value);
+  set(key, value, { nameSpace = defaultStore } = {}) {
+    if (!this[nameSpace]) this[nameSpace] = {};
+    if (this[nameSpace][key] !== value) {
+      this[nameSpace][key] = value;
+      this.emit(`${nameSpace}:${key}`, value);
     }
-    return this;
   }
 }
 
