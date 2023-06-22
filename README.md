@@ -101,7 +101,6 @@ console.log(
 );
 ```
 
-
 ### - package
 The code exports the contents of the `package.json` file and some of its properties.
 The exported properties are `name`, `author`, `version`, and `license`
@@ -115,40 +114,54 @@ console.log(`License: ${license}`);
 ```
 
 ### - store
-The Store class is an EventEmitter subclass that provides a simple key-value storage mechanism. It allows registering an identifier and provides methods to get and set values at specific locations within the storage. When a value is set, the Store emits an event with the location and the new value. It serves as a basic in-memory store with event-driven functionality.
+The Store class is an EventEmitter subclass that provides a simple key-value storage mechanism.
 ```javascript
+import { Store } from './store';
+
+// Create an instance of Store to manage users
 const userStore = new Store();
-userStore.register('users');
 
-const addUser = (id, name, email) => {
-  const user = { id, name, email };
-  userStore.set(`users.${id}`, user);
+// Add a user
+const addUser = (id, name) => {
+  userStore.set(id, { id, name });
+  userStore.emit('userAdded', id);
 };
 
-const getUser = (id) => {
-  return userStore.get(`users.${id}`);
+// Update a user
+const updateUser = (id, name) => {
+  const user = userStore.get(id);
+  if (user) {
+    user.name = name;
+    userStore.set(id, user);
+    userStore.emit('userUpdated', id);
+  }
 };
 
-const listenUserChanges = (id) => {
-  userStore.on(`users.${id}`, (newUser) => {
-    console.log(`User ${id} has been updated:`, newUser);
-  });
+// Remove a user
+const removeUser = (id) => {
+  userStore.set(id, undefined);
+  userStore.emit('userRemoved', id);
 };
 
-addUser(1, 'John Doe', 'john@example.com');
-addUser(2, 'Jane Smith', 'jane@example.com');
+// Listen to userAdded events
+userStore.on('userAdded', (id) => {
+  console.log(`User added: ${id}`);
+});
 
-const user1 = getUser(1);
-console.log(user1);
-// Output: { id: 1, name: 'John Doe', email: 'john@example.com' }
+// Listen to userUpdated events
+userStore.on('userUpdated', (id) => {
+  console.log(`User updated: ${id}`);
+});
 
-addUser(1, 'John Doe', 'john.doe@example.com');
-// Output: User 1 has been updated: { id: 1, name: 'John Doe', email: 'john.doe@example.com' }
+// Listen to userRemoved events
+userStore.on('userRemoved', (id) => {
+  console.log(`User removed: ${id}`);
+});
 
-listenUserChanges(2);
-
-addUser(2, 'Jane Smith', 'jane.smith@example.com');
-// Output: User 2 has been updated: { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com' }
+// Example usage
+addUser(1, 'John Doe'); // Prints: User added: 1
+updateUser(1, 'John Smith'); // Prints: User updated: 1
+removeUser(1); // Prints: User removed: 1
 ```
 
 ### - TCPServer
